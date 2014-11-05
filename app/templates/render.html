@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block script %}
+    <link rel="stylesheet" media="screen" href="//cdn.datatables.net/1.10.3/css/jquery.dataTables.min.css">
+    <script src="//cdn.datatables.net/1.10.3/js/jquery.dataTables.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        var table = $('.dataframe').DataTable({
+            "dom": 'RC<"clear">lfrtip'
+        });
+        $.fn.dataTable.KeyTable( table );
+        new $.fn.dataTable.AutoFill( table );
+        new $.fn.dataTable.FixedHeader( table );
+    });
+    </script>
+{% endblock %}
+{% block content %}
+    {% if not table.empty %}
+        {{ table|safe }}
+    {% endif %}
+{% endblock %}
