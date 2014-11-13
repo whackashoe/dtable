@@ -16,8 +16,8 @@ def upload():
     	try:
         	data = read_csv(up_file)
         except (parser.CParserError):
-      		return render_template('upload_error.html', errors=["CSV parse error"])
+      		return render_template('error.html', errors=["CSV parse error"])
 
         return render_template('render.html', table=data.to_html())
     else:
-        return render_template('upload_error.html', errors=["no file uploaded"])
+        return render_template('error.html', errors=["no file uploaded"])
