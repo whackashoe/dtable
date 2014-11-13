@@ -1,6 +1,9 @@
 from flask import Flask
-import filters
 
 app = Flask(__name__)
-app.register_blueprint(filters.blueprint)
+
+import config
 from app import views
+
+import filters
+app.register_blueprint(filters.blueprint)
